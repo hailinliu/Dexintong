@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/head_title"
+        layout="@layout/title_model" />
+
+    <RelativeLayout
+        android:id="@+id/rl_shoppingcar_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_bg1"
+        android:layout_below="@+id/head_title">
+
+        <com.runtai.newdexintong.module.myorder.view.PinnedHeaderListView
+            android:id="@+id/list_Shopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/line_backgroud_color"
+            android:dividerHeight="0.2dp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/group_header_left_part"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1"
+                android:background="@color/text_green" />
+
+            <View
+                android:id="@+id/group_header_right_part"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_weight="0.4"
+                android:background="@color/gray" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/tv_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_above="@+id/rl_bottom_part"
+        android:background="@color/line_backgroud_color"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_part"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/white"
+        android:visibility="visible">
+
+        <CheckBox
+            android:id="@+id/cb_checkall"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/checkbox_selector"
+            android:button="@null" />
+
+        <TextView
+            android:id="@+id/tv_checked_all_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/cb_checkall"
+            android:text="全选"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/bt_goPay_or_delete"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_price_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/gong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="总计:"
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/fuhao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥"
+                    android:textColor="@color/new_title_color"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="@color/new_title_color"
+                    android:textSize="16.0sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_kinds_and_piece"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="("
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/textsize_12" />
+
+                <TextView
+                    android:id="@+id/tv_kinds_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/textsize_12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="种 "
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/textsize_12" />
+
+                <TextView
+                    android:id="@+id/tv_piece"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 0"
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/textsize_12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="件)"
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/textsize_12" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_reduced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已优惠"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/tv_reduced_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_goPay_or_delete"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/new_title_color"
+            android:gravity="center"
+            android:text="去结算"
+            android:textColor="@color/white"
+            android:textSize="15.0sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_tourist_login_shoppingcar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/head_title"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_tourist_login_icon"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/tourist_login_shoppingcar_icon" />
+
+        <TextView
+            android:id="@+id/tv_tourist_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_tourist_login_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="游客登录"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/font_18" />
+
+        <TextView
+            android:id="@+id/tv_have_no_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_tourist_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="无权浏览此页面哦~"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/font_18" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_cart_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_shoppingcart_no_data" />
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/head_title"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+   
+</RelativeLayout>
+

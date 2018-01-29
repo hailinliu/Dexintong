@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@color/entry_backgroud_color"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:context="com.runtai.newdexintong.module.homepage.activity.ScanResultActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title_model" />
+
+    <RelativeLayout
+        android:id="@+id/rl_have_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:background="@color/entry_backgroud_color">
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/lv_scan_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:dividerHeight="0.2dp"
+            android:divider="@color/line_backgroud_color"
+            ptr:ptrMode="both"
+            android:visibility="visible"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_no_data_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <include layout="@layout/layout_no_data_show" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_shoppingcar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/above_bottom"
+            android:layout_marginRight="@dimen/margin_right"
+            android:src="@mipmap/shoppingcar_icon" />
+
+        <TextView
+            android:id="@+id/tv_goods_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/iv_shoppingcar"
+            android:layout_alignTop="@+id/iv_shoppingcar"
+            android:background="@drawable/shape_corner_bg"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_10" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

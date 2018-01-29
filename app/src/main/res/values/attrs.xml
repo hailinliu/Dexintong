@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="TaoBaoView">
+        <attr name="ringProgressColor" format="color" />
+        <attr name="ringWidth" format="dimension" />
+        <attr name="ringImage" format="reference" />
+        <attr name="ringmax" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="RingProgressBar">
+        <attr name="rProgressColor" format="color" />
+        <attr name="rWidth" format="dimension" />
+        <attr name="rImage" format="reference" />
+        <attr name="rmax" format="integer" />
+    </declare-styleable>
+   
+</resources>

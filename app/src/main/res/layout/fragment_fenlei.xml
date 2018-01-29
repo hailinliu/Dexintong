@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/entry_backgroud_color"
+    tools:context="com.runtai.newdexintong.module.home.activity.MainActivity">
+
+    <include layout="@layout/title_model" />
+
+    <LinearLayout
+        android:id="@+id/ll_have_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/chaoshi_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:background="@color/white"
+            android:cacheColorHint="@null"
+            android:divider="@color/line_backgroud_color"
+            android:dividerHeight="0.2dp"
+            android:scrollbars="none" />
+
+        <!--<View-->
+        <!--android:layout_width="0.8dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/line_backgroud_color" />-->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/feilei_menu"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/feilei_leibie"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_kinds_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxEms="4"
+                        android:singleLine="true"
+                        android:text="类别选择"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+
+                    <ImageView
+                        android:id="@+id/feilei_leibie_image"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="1dp"
+                        android:src="@mipmap/down_gray" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/line_backgroud_color" />
+
+                <LinearLayout
+                    android:id="@+id/feilei_pinpai"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_brand_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxEms="4"
+                        android:singleLine="true"
+                        android:text="品牌选择"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+
+                    <ImageView
+                        android:id="@+id/feilei_pinpai_image"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="1dp"
+                        android:src="@mipmap/down_gray" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/line_backgroud_color" />
+
+                <LinearLayout
+                    android:id="@+id/feilei_shangpin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_goods_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxEms="4"
+                        android:singleLine="true"
+                        android:text="商品选择"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+
+                    <ImageView
+                        android:id="@+id/feilei_shangpin_image"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="1dp"
+                        android:src="@mipmap/down_gray" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/ll_grid_area"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/feilei_menu"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/chaoshi_gv_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/line_backgroud_color" />
+
+                <com.handmark.pulltorefresh.library.PullToRefreshGridView
+                    android:id="@+id/mPullToRefreshGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:cacheColorHint="@null"
+                    android:horizontalSpacing="5dp"
+                    android:verticalSpacing="5dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    ptr:ptrMode="both" />
+
+                <LinearLayout
+                    android:id="@+id/ll_right_not_data_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/entry_backgroud_color"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <include layout="@layout/layout_no_data_show" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+</LinearLayout>

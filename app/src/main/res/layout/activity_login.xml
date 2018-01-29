@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_hui"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".module.home.activity.login.LoginActivity">
+
+    <include layout="@layout/title_model" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/yubianli_logo" /> 
+            <TextView
+                android:id="@+id/face_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:text="刷脸"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+            
+           
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:orientation="vertical"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="1dp"
+                card_view:cardPreventCornerOverlap="true"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/iv_location_icon"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/location_city_icon" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/item_height"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/iv_location_icon"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_cityName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@null"
+                                android:maxLength="11"
+                                android:padding="5.0dip"
+                                android:singleLine="true"
+                                android:textSize="@dimen/font_16" />
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:id="@+id/iv_select_city"
+                            android:layout_width="25dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/login_horizontal_margin"
+                            android:src="@mipmap/select_city_icon" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1.0dip"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin"
+                        android:layout_marginRight="@dimen/login_horizontal_margin"
+                        android:background="@color/mdj_bg"
+                        android:visibility="gone" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/iv_account"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/accont_icon" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/item_height"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/iv_account"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/et_account"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginRight="@dimen/login_horizontal_margin"
+                                android:background="@null"
+                                android:ems="11"
+                                android:hint="账号"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:maxLength="11"
+                                android:padding="5.0dip"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_gray"
+                                android:textSize="@dimen/font_16" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_clear_phone"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/login_horizontal_margin"
+                            android:src="@mipmap/clear_address"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1.0dip"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin"
+                        android:layout_marginRight="@dimen/login_horizontal_margin"
+                        android:background="@color/mdj_bg" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/iv_password_icon"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/password_icon" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/item_height"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/iv_password_icon"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/et_password"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginRight="@dimen/login_horizontal_margin"
+                                android:background="@null"
+                                android:digits="@string/filter_vcode"
+                                android:hint="密码"
+                                android:inputType="textPassword"
+                                android:maxLength="20"
+                                android:padding="5.0dip"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_gray"
+                                android:textSize="16.0sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_password"
+                            android:layout_width="20dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/login_horizontal_margin"
+                            android:src="@mipmap/hide_password_icon" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1.0dip"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin"
+                        android:layout_marginRight="@dimen/login_horizontal_margin"
+                        android:background="@color/mdj_bg" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/login_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/iv_code_icon"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/identify_code_icon" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/item_height"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/iv_code_icon"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/et_identify_code"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginRight="@dimen/login_horizontal_margin"
+                                android:background="@null"
+                                android:ems="6"
+                                android:hint="请输入动态口令"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:padding="5.0dip"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_gray"
+                                android:textSize="@dimen/font_16" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/btn_get_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/login_horizontal_margin"
+                            android:background="@drawable/shape_button_gray_edge_bg"
+                            android:enabled="false"
+                            android:text="获取验证码"
+                            android:textColor="@color/text_gray"
+                            android:textSize="@dimen/font_12"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/login_horizontal_margin"
+                android:layout_marginTop="15dp"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_message_identify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginRight="@dimen/login_horizontal_margin"
+                    android:background="@drawable/shape_button_red_edge_bg"
+                    android:text="短信验证"
+                    android:textColor="@color/new_title_color"
+                    android:textSize="@dimen/font_12" />
+
+                <Button
+                    android:id="@+id/btn_token_identify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginRight="@dimen/login_horizontal_margin"
+                    android:background="@drawable/shape_button_red_filled_bg"
+                    android:text="令牌验证"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginLeft="@dimen/button_left_margin"
+                android:layout_marginRight="@dimen/button_right_margin"
+                android:layout_marginTop="20dip"
+                android:background="@drawable/shape_button_red_color_bg"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="登录"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/button_textSize" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_user_register"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="新用户注册"
+                    android:textColor="@color/new_title_color"
+                    android:textSize="@dimen/font_14"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/tv_tourist_login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="游客登录"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_12"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/tv_forget_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:text="忘记密码 ？"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/line_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/ll_service_number"
+                    android:background="@color/mdj_bg" />
+
+                <LinearLayout
+                    android:id="@+id/ll_service_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_service_number_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="客服服务电话："
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/font_14" />
+
+                    <TextView
+                        android:id="@+id/tv_service_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/customer_service_number"
+                        android:textColor="@color/text_gray"
+                        android:textSize="@dimen/font_14" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/line_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/ll_service_number"
+                    android:background="@color/mdj_bg" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

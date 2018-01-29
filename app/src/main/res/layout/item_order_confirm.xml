@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/tv_present"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/img_shoppingCarItem"
+        android:ellipsize="end"
+        android:maxEms="10"
+        android:singleLine="true"
+        android:text="[赠品]"
+        android:textColor="@color/new_title_color"
+        android:textSize="@dimen/textsize_16" />
+
+    <TextView
+        android:id="@+id/item_goodsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/tv_present"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxEms="10"
+        android:singleLine="true"
+        android:text="红牛红牛红牛红牛红牛红牛红牛"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/textsize_16" />
+    <TextView
+        android:id="@+id/tv_isdirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/item_goodsName"
+        android:singleLine="true"
+        android:text="[直配]"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/textsize_16" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/img_shoppingCarItem">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_spec_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+            <TextView
+                android:id="@+id/tv_spec_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/件"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+            <TextView
+                android:id="@+id/tv_item_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_shoppingCarItem"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/img_shoppingCarItem">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_preorder_goods_price_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                android:textColor="@color/new_title_color"
+                android:textSize="@dimen/font_16" />
+
+            <TextView
+                android:id="@+id/tv_piece_goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6.00"
+                android:textColor="@color/new_title_color"
+                android:textSize="@dimen/font_16" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_16" />
+
+            <TextView
+                android:id="@+id/tv_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12.4"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_16" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+
+        android:id="@+id/img_shoppingCarItem"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/no_net_show_icon" />
+
+</RelativeLayout>

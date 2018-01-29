@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="温馨提示"
+            android:textColor="@color/text_black"
+            android:textSize="18sp" />
+        
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="16dp"
+            android:layout_height="20dp" 
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/close"/>
+    </RelativeLayout>
+
+   
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/line_backgroud_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:textSize="16sp"
+        android:text="请减少或删除购物车中以下商品后重新下单" />
+
+    <ListView
+        android:id="@+id/lv_order_failed_goods"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/line_backgroud_color"
+        android:dividerHeight="0.2dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/line_backgroud_color" />
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:text="知道了" />
+
+</LinearLayout>

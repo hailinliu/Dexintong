@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_goto_special"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_wait_you_text"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_button_red_edge_bg"
+        android:text="去选购商品"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/new_title_color"
+        android:textSize="@dimen/font_14" />
+
+</RelativeLayout>

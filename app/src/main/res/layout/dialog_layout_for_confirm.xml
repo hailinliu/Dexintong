@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lLayout_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="退货确认"
+        android:textColor="@color/gray_text"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/alertdialog_line" />
+    
+    <ListView
+        android:id="@+id/lv_goods_msg"
+        android:layout_width="match_parent"
+        android:divider="@null"
+        android:layout_height="wrap_content"/>
+        
+    <!--<TextView-->
+        <!--android:id="@+id/txt_msg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/gray_text"-->
+        <!--android:textSize="16sp" />-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/alertdialog_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:background="@drawable/alertdialog_left_selector"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/gray_text"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/img_line"
+            android:layout_width="0.5dp"
+            android:layout_height="43dp"
+            android:background="@color/alertdialog_line" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:background="@drawable/alertdialog_right_selector"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/gray_text"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

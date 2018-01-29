@@ -1,0 +1,23 @@
+ext {
+
+    minSdkVersion = 15
+    targetSdkVersion = 22
+    compileSdkVersion = 25
+    buildToolsVersion = '26.0.2'
+    supportVersion = '25.0.1'
+
+    //轮播图框架版本
+    bannerVersion = '1.4.10'
+
+    //图片加载框架imageloader版本
+    imageloaderVersion = '1.9.5'
+
+    //gson解析框架版本
+    gsonVersion = '2.2.4'
+
+    //刷新库的版本
+    pulltorefreshVersion='1.0.7'
+    //Eventbus版本
+    eventBusVersion = '3.0.0';
+
+}

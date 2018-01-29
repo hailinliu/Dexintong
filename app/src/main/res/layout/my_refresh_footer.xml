@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/footer_base"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+
+
+    <LinearLayout
+        android:id="@+id/refresh_footer_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <com.runtai.newdexintong.module.fenlei.view.TaoBaoView
+            android:id="@+id/taobao_view"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:ringProgressColor="@android:color/darker_gray"
+            app:ringWidth="1dp"
+            app:ringmax="100" />
+
+        <TextView
+            android:id="@+id/footer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="正在加载"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</LinearLayout>
+

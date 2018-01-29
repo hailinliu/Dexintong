@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view_popuwindow_bg_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_popuwindow_content"
+        android:background="@color/popuwindow_bg" />
+
+    <LinearLayout
+        android:id="@+id/ll_popuwindow_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_exchange_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="红牛红牛红牛红牛红牛红牛红牛"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/font_16" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tv_exchange_name"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="规格："
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/textsize_18" />
+
+                <TextView
+                    android:id="@+id/tv_exchange_spec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/font_16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个/件"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/font_16" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_order_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="订货件数："
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_order_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_order_text"
+                    android:text="20"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_can_use_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="可兑数量："
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_can_use_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_can_use_text"
+                    android:text="2"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_can_exchange_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="奖项价值："
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+            <TextView
+                android:id="@+id/tv_can_exchange_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_can_exchange_text"
+                android:text="2"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_14" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/line_backgroud_color" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="输入兑奖数量："
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/font_16" />
+
+            <EditText
+                android:id="@+id/et_number"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:background="@drawable/shape_bg_gray_corner_ten"
+                android:gravity="center_vertical"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_confirm_exchange"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/new_title_color"
+            android:text="立即兑奖"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_16" />
+
+    </LinearLayout>
+
+</RelativeLayout>

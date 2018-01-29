@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_title"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:background="@color/new_title_color">
+
+    <RelativeLayout
+        android:id="@+id/head_back"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_arrow_back_white_24dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_share"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/subtitle_textsize"
+            android:textColor="@color/white"
+            android:text="分享"
+             />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:lines="1"
+        android:maxEms="11"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_textsize" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:text="子标题"
+        android:textColor="@color/white"
+        android:textSize="@dimen/subtitle_textsize"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_scan"
+        android:layout_width="23dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/home_scan_icon"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_message"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@mipmap/home_message_icon"
+        android:visibility="gone" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_message_amount"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignRight="@+id/iv_message"-->
+    <!--android:layout_marginRight="-3dp"-->
+    <!--android:layout_marginTop="-5dp"-->
+    <!--android:layout_alignTop="@+id/iv_message"-->
+    <!--android:background="@drawable/shape_corner_white_bg"-->
+    <!--android:gravity="center"-->
+    <!--android:text="60"-->
+    <!--android:visibility="gone"-->
+    <!--android:textColor="@color/new_title_color"-->
+    <!--android:textSize="@dimen/font_10" />-->
+
+    <RelativeLayout
+        android:id="@+id/rl_search_jiemian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/iv_scan"
+        android:layout_toLeftOf="@+id/iv_scan"
+        android:layout_toEndOf="@+id/iv_message"
+        android:layout_toRightOf="@+id/iv_message"
+        android:background="@drawable/shape_bg_gray_ten"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_search2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search_icon" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/iv_search2"
+            android:layout_toRightOf="@+id/iv_search2"
+            android:background="@null"
+            android:drawablePadding="5dp"
+            android:focusable="false"
+            android:hint="搜索你喜爱的商品"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_search_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_voice_unclicked" 
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/iv_search_voice_clicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_voice_clicked"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_sortFragment_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/shape_bg_gray_ten"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_search_sortFragment"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search_icon" />
+
+        <EditText
+            android:id="@+id/et_search_sortFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/iv_search_sortFragment"
+            android:layout_toRightOf="@+id/iv_search_sortFragment"
+            android:background="@null"
+            android:drawablePadding="5dp"
+            android:focusable="false"
+            android:hint="搜索你喜爱的商品"
+            android:imeOptions="actionSearch"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/iv_search_sortFragment_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_voice_unclicked"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/iv_search_voice_sortFragment_clicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_voice_clicked"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/tv_subtitle"
+        android:layout_toLeftOf="@+id/tv_subtitle"
+        android:layout_toEndOf="@+id/head_back"
+        android:layout_toRightOf="@+id/head_back"
+        android:background="@drawable/shape_bg_gray_ten"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_search3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search_icon" />
+
+        <EditText
+            android:id="@+id/et_search2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/iv_search3"
+            android:layout_toRightOf="@+id/iv_search3"
+            android:background="@null"
+            android:drawablePadding="5dp"
+            android:hint="请输入商品名称搜索"
+            android:imeOptions="actionSearch"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/iv_search_result_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_voice_unclicked"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/iv_search_voice_result_clicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_voice_clicked"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_centertitle_bg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/center_bg"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_exchange_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toStartOf="@+id/iv_exchange_search"
+            android:layout_toLeftOf="@+id/iv_exchange_search"
+            android:text="子标题"
+            android:textColor="@color/white"
+            android:textSize="@dimen/subtitle_textsize" />
+
+        <ImageView
+            android:id="@+id/iv_exchange_search"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/search_icon" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_search_special"
+        android:layout_width="25dp"
+        android:layout_height="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/search_icon"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

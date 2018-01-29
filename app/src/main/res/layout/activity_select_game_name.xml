@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_select_game_name"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.runtai.newdexintong.module.homepage.activity.SelectGameNameActivity">
+
+    <include layout="@layout/title_model" />
+
+    <RelativeLayout
+        android:id="@+id/rl_game_name_search"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_button_gray_edge_bg">
+
+        <ImageView
+            android:id="@+id/iv_search_icon"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/search_gray_icon" />
+
+        <EditText
+            android:id="@+id/et_game_name_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_search_icon"
+            android:background="@null"
+            android:gravity="center_horizontal"
+            android:hint="游戏名称搜索"
+            android:textSize="@dimen/font_14" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <com.runtai.newdexintong.module.myorder.view.PinnedHeaderListView
+            android:id="@+id/pinnedListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@*android:color/transparent"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:scrollbars="none" />
+
+        <com.runtai.newdexintong.module.homepage.view.BladeView
+            android:id="@+id/mLetterListView"
+            android:layout_width="25dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginTop="20.0dip"
+            android:background="@drawable/bg_edittext_normal" />
+    </RelativeLayout>
+
+
+</LinearLayout>

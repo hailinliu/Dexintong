@@ -1,0 +1,18 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <solid android:color="@color/white" />
+    <size android:width="50dp" android:height="30dp"/>
+    <!-- 设置描边 -->
+    <stroke android:width="0.2dp" android:color="@color/shallow_gray" 
+         ></stroke>
+
+    <corners android:radius="5dp"/>
+
+    <padding
+        android:bottom="1dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="0dp" />
+    
+    
+</shape>

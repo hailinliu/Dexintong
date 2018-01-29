@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@color/entry_backgroud_color"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.runtai.newdexintong.module.homepage.activity.ExchangePrizeRecordActivity">
+    
+    <include layout="@layout/title_model"/>
+
+    <LinearLayout
+        android:id="@+id/ll_exchange_record_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_goods"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:gravity="left"
+            android:text="兑奖时间"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/font_16" />
+
+
+        <TextView
+            android:id="@+id/tv_prize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="left"
+            android:text="商品"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/font_16" />
+
+        <TextView
+            android:id="@+id/tv_limit_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="奖项"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/font_16" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="数量"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/font_16" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="状态"
+            android:gravity="center"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/font_16" />
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/line_backgroud_color" />
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/lv_exchange_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="0.2dp"
+        android:scrollbars="none"
+        ptr:ptrMode="both"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_no_data_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_data_show" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+
+</LinearLayout>

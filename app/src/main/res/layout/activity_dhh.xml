@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@color/entry_backgroud_color"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.runtai.newdexintong.module.homepage.activity.SpecialSaleActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title_model" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/pullToRefreshScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        ptr:ptrMode="both">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/headerPic"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="fitXY" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/special_title_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/line_backgroud_color" />
+
+            <com.runtai.newdexintong.comment.view.MyGridView
+                android:id="@+id/gridview_goods_msg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:horizontalSpacing="3dp"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="3dp"
+                android:visibility="visible" />
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_data_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_data_show" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_shoppingcar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/above_bottom"
+        android:layout_marginRight="@dimen/margin_right"
+        android:src="@mipmap/shoppingcar_icon" />
+
+    <TextView
+        android:id="@+id/tv_goods_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/iv_shoppingcar"
+        android:layout_alignTop="@+id/iv_shoppingcar"
+        android:background="@drawable/shape_corner_bg"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_10" />
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+</RelativeLayout>

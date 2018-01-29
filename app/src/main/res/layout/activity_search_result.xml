@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/entry_backgroud_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_model" />
+    
+
+    <LinearLayout
+        android:id="@+id/ll_sort_kinds"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/rl_general"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_general_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="综合排序"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_16" />
+
+            <TextView
+                android:id="@+id/tv_general_line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/new_title_color"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.2dp"
+            android:layout_height="match_parent"
+            android:background="@color/line_backgroud_color" />
+
+        <RelativeLayout
+            android:id="@+id/rl_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_price_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="价格排序"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_16" />
+
+            <ImageView
+                android:id="@+id/iv_price_sort"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_price_sort"
+                android:src="@mipmap/down_gray" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.2dp"
+            android:layout_height="match_parent"
+            android:background="@color/line_backgroud_color" />
+
+        <RelativeLayout
+            android:id="@+id/rl_brand"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_brand_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="品牌选择"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_16" />
+
+            <ImageView
+                android:id="@+id/iv_brand_sort"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_brand_sort"
+                android:src="@mipmap/down_gray" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--<View-->
+        <!--android:id="@+id/view_line_ten"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:background="@color/line_backgroud_color" />-->
+
+    <RelativeLayout
+        android:id="@+id/rl_have_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <com.handmark.pulltorefresh.library.PullToRefreshGridView
+            android:id="@+id/gridview_goods_sort"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:cacheColorHint="@null"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
+            android:numColumns="2"
+            android:scrollbars="none"
+            ptr:ptrMode="both"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/iv_shoppingcar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/above_bottom"
+            android:layout_marginRight="@dimen/margin_right"
+            android:src="@mipmap/shoppingcar_icon" />
+
+        <TextView
+            android:id="@+id/tv_goods_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/iv_shoppingcar"
+            android:layout_alignTop="@+id/iv_shoppingcar"
+            android:background="@drawable/shape_corner_bg"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_10" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_cry_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/no_data_cry_icon" />
+
+        <TextView
+            android:id="@+id/tv_no_search_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_cry_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="未找到该商品"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/font_18"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_no_search_data"
+            android:layout_centerHorizontal="true"
+            android:text="还有更多的商品供你选择哦~"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/font_18"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:textColor="@color/white">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_weight="0.10"
+                    android:background="@null"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="请输入充值号码"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:textColor="#000"
+                    android:textColorHint="@color/alertdialog_line"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:id="@+id/iv_contact"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/linkman" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_place_and_owner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tv_call_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text=""
+                    android:background="@null"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+                <TextView
+                    android:id="@+id/tv_call_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+                <TextView
+                    android:id="@+id/tv_call_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+              
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+
+                <TextView
+                    android:id="@+id/tv_consume_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_consume_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_call_balance_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_call_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_qianfei_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+                <TextView
+                    android:id="@+id/tv_qianfei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/font_14" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_package"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="6dp"
+              android:orientation="horizontal">
+
+              <TextView
+                  android:id="@+id/tv_package_name_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="16dp"
+                  android:text=""
+                  android:textColor="@color/text_gray"
+                  android:textSize="@dimen/font_14" />
+              <TextView
+                  android:id="@+id/tv_package_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text=""
+                  android:textColor="@color/text_gray"
+                  android:textSize="@dimen/font_14" />
+              
+          </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/entry_backgroud_color" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="充话费"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_16" />
+
+            <com.runtai.newdexintong.comment.view.MyGridView
+                android:id="@+id/myGridView_mobile_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_banner_title4"
+                android:horizontalSpacing="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:numColumns="3"
+                android:verticalSpacing="10dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="更多充值"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_q_money_recharge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/q_money_recharge_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Q币充值"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_mobile_package"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/mobile_present_package_icon" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="移动存送套餐"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_flow_recharge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/flow_recharge_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="流量充值"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_more"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/more_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="更多"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_12" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+

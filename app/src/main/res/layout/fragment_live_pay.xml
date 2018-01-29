@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_water_charge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/live_recharge_background"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/shui" />
+
+            <TextView
+                android:id="@+id/tv_water_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="水费"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_power_charge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/dian" />
+
+            <TextView
+                android:id="@+id/tv_power_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="电费"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_gas_recharge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/ranqi" />
+
+            <TextView
+                android:id="@+id/tv_gas_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="燃气费"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/entry_backgroud_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/UserValueActivity_Relative"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp">
+
+            <EditText
+                android:id="@+id/et_user_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/textView2"
+                android:background="@color/white"
+                android:hint="输入7位户号"
+                android:inputType="text|phone"
+                android:maxLength="7"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="缴费账户 :"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_background" />
+
+        <RelativeLayout
+            android:id="@+id/SFRela"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="0.5dp"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="缴费金额 :"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16" />
+
+            <RelativeLayout
+                android:id="@+id/shuiJIneR"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textView4">
+
+                <EditText
+                    android:id="@+id/et_pay_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/white"
+                    android:hint="输入缴费金额"
+                    android:inputType="text|number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_14" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_background" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="0.5dp"
+            android:paddingLeft="10dp">
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/textView6"
+                android:background="@color/white"
+                android:hint="输入您的联系方式"
+                android:inputType="text|phone"
+                android:maxLength="11"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_14" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="手机号码 :"
+                android:textColor="#000000"
+                android:textSize="@dimen/font_16" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_background" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/tv_recharge_now"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/button_left_margin"
+                android:layout_marginRight="@dimen/button_right_margin"
+                android:background="@drawable/shape_button_red_filled_bg"
+                android:gravity="center"
+                android:text="立刻充值"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_textSize" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/entry_backgroud_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="更多充值"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_16" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_q_money_recharge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/q_money_recharge_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Q币充值"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_mobile_package"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/mobile_present_package_icon" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="移动存送套餐"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_flow_recharge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/flow_recharge_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="流量充值"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_more"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/more_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="更多"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

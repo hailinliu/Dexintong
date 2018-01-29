@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_hui"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_model" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20.0dip"
+        android:background="@drawable/shape_bg_white_corner_ten"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:id="@+id/iv_password_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/phone_gray_icon" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/item_height"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_password_icon"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@null"
+                    android:hint="注册手机号"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:padding="5.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="@dimen/font_16" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_clear_phone"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/login_horizontal_margin"
+                android:src="@mipmap/clear_address"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@color/mdj_bg" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:id="@+id/iv_code_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/get_code_icon" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/item_height"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv_code_icon"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_identify_code"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@null"
+                    android:ems="6"
+                    android:hint="请输入验证码"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:padding="5.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="@dimen/font_16" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_get_code"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:background="@drawable/shape_button_gray_edge_bg"
+                android:enabled="false"
+                android:text="获取验证码"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/font_12" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="@dimen/button_left_margin"
+        android:layout_marginRight="@dimen/button_right_margin"
+        android:layout_marginTop="40dip"
+        android:background="@drawable/shape_button_red_color_bg"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="下一步"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/button_textSize" />
+
+</LinearLayout>

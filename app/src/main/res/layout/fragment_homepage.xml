@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/mTitle"
+        layout="@layout/title_model" />
+
+
+    <com.runtai.newdexintong.module.homepage.view.MyScrollview
+        android:id="@+id/mScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mTitle"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/cycleViewPager"
+                android:name="com.runtai.newdexintong.module.homepage.view.CycleViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/line_backgroud_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_regular_buy_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@mipmap/regular_buy_icon" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="常购清单"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_recharge_center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@mipmap/rechargecenter_icom" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="充值缴费"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_exchange_prize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@mipmap/exchange_icon" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="我要兑奖"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_special_area"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:src="@mipmap/special_price_icon" />
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="特价专区"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/font_14" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/entry_backgroud_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_special_one"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/first_special_height"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/pic1" />
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="@dimen/first_special_height"
+                    android:background="@color/entry_backgroud_color" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/first_special_height"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_special_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/first_special_center_height"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/pic2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="@color/entry_backgroud_color" />
+
+                    <ImageView
+                        android:id="@+id/iv_special_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/first_special_center_height"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/pic3" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="@dimen/first_special_height"
+                    android:background="@color/entry_backgroud_color" />
+
+                <ImageView
+                    android:id="@+id/iv_special_four"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/first_special_height"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/pic4" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/entry_backgroud_color" />
+
+            <com.runtai.newdexintong.comment.view.MyGridView
+                android:id="@+id/ads5_mGridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/entry_backgroud_color"
+                android:horizontalSpacing="0.5dp"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="0.5dp"
+                android:visibility="visible" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/entry_backgroud_color" />
+
+            <com.runtai.newdexintong.comment.view.MyGridView
+                android:id="@+id/mGridView_ads6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/entry_backgroud_color"
+                android:horizontalSpacing="0.5dp"
+                android:numColumns="4"
+                android:scrollbars="none"
+                android:verticalSpacing="0.5dp"
+                android:visibility="visible" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/entry_backgroud_color" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </com.runtai.newdexintong.module.homepage.view.MyScrollview>
+
+    <com.runtai.newdexintong.module.homepage.view.ToTopImageView
+        android:id="@+id/iv_go_to_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/mScrollView"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/go_to_top"
+        android:visibility="gone" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mTitle"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+</RelativeLayout>

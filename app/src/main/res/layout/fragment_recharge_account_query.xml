@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:background="@color/entry_backgroud_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_section_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <include layout="@layout/layout_select_time_section" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_have_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/mPullToRefreshListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/line_backgroud_color"
+            android:dividerHeight="0.2dp"
+            android:gravity="center"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none"
+            android:verticalSpacing="10.0dip"
+            ptr:ptrMode="both" />
+
+        <RelativeLayout
+            android:id="@+id/rl_no_data_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <include layout="@layout/layout_no_data_show" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_net"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/layout_no_net_show" />
+
+    </RelativeLayout>
+
+</LinearLayout>

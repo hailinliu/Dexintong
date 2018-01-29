@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_no_goods_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/no_goods_icon" />
+
+    <TextView
+        android:id="@+id/tv_nodata_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_no_goods_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="进货单空空如也"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/font_18" />
+
+    <TextView
+        android:id="@+id/tv_wait_you_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_nodata_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="一大波好货等你选购~"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/font_18" 
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btn_goto_special"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_wait_you_text"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_button_red_edge_bg"
+        android:text="去常购清单"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/new_title_color"
+        android:textSize="@dimen/font_14" />
+
+</RelativeLayout>

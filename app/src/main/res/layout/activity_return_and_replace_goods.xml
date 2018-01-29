@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_return_and_replace_goods_acitivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    
+    <include layout="@layout/title_model"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/mTablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/new_title_color"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/new_title_color"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextColor="@color/black" />
+
+    <!--可滑动的布局内容-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/rrg_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white" />
+    
+
+</LinearLayout>

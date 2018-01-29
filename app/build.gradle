@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'org.greenrobot.greendao'
+//
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//
+//    }
+//    dependencies {
+//        classpath 'org.greenrobot:greendao-gradle-plugin:3.0.0'
+//
+//        // NOTE: Do not place your application dependencies here; they belong
+//        // in the individual module build.gradle files
+//    }
+//}
+//
+//greendao {
+//    schemaVersion 1
+//    daoPackage 'com.runtai.newdexintong.module.home.gen'
+//    targetGenDir 'src/main/java'
+//}
+
+android {
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.runtai.newdexintong"
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
+        versionCode 4
+        versionName "1.1.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+    }
+    buildTypes {
+        release {
+            // 不显示Log, 在java代码中的调用方式为：BuildConfig.LOG_DEBUG
+//            buildConfigField "boolean", "LEO_DEBUG", "false"
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 显示Log
+//            buildConfigField "boolean", "LEO_DEBUG", "true"
+//            versionNameSuffix "-debug"
+            minifyEnabled false
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$rootProject.supportVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportVersion"
+    compile "com.android.support:design:$rootProject.supportVersion"
+    compile "com.nostra13.universalimageloader:universal-image-loader:$rootProject.imageloaderVersion"
+    compile "com.google.code.gson:gson:$rootProject.gsonVersion"
+    compile files('libs/umeng-analytics-v6.0.6.jar')
+    compile files('libs/alipaySdk-20170922.jar')
+    compile project(':zxingScan')
+    //    compile 'org.greenrobot:greendao:3.0.1'
+    //    compile 'org.greenrobot:greendao-generator:3.0.0'
+    compile "com.kevin:pulltorefresh:$rootProject.pulltorefreshVersion"
+    compile project(':okHttpUtils')
+    compile "com.android.support:cardview-v7:$rootProject.supportVersion"
+    // EventBus
+    //    compile "org.greenrobot:eventbus:$rootProject.eventBusVersion"
+    //    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    implementation files('libs/Msc.jar')
+}

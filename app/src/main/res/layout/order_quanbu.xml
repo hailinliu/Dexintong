@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_background">
+
+        <!-- 下拉刷新 -->
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/orderList_quanbu"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/gray_background"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="5dp"
+            android:scrollbars="none"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/order_quanbu_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="暂无此类订单"
+            android:textSize="@dimen/title_textsize"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/view_line" />
+    </RelativeLayout>
+</LinearLayout>

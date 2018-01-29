@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@color/white">
+
+    <CheckBox
+        android:id="@+id/checkbox_select"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/checkbox_selector"
+        android:button="@null"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_regular_buy_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/checkbox_select"
+        android:background="@mipmap/no_net_show_icon" />
+
+    <TextView
+        android:id="@+id/tv_sell_out_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/shape_sell_out_text_bg"
+        android:gravity="center"
+        android:text="售罄"
+        android:visibility="visible"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sell_out_textsize" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/iv_regular_buy_pic">
+
+        <TextView
+            android:id="@+id/tv_goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxEms="10"
+            android:singleLine="true"
+            android:text="达利园好吃点香脆杏仁饼干"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/chaoshi_item_money_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥"
+                android:textColor="@color/red_text_color"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.80"
+                android:textColor="@color/red_text_color"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_creattime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_goods_name"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_create_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="生产日期:"
+                android:textColor="#c2c2c2"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_create_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:lines="1"
+                android:textColor="#c2c2c2"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!--商品规格-->
+        <LinearLayout
+            android:id="@+id/ll_spec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_below="@+id/ll_creattime"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_goods_spec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="250"
+                android:textColor="#c2c2c2"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_goods_spec_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包"
+                android:textColor="#c2c2c2"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/件"
+                android:textColor="#c2c2c2"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+
+      
+    </RelativeLayout>
+
+   
+
+    <ImageView
+        android:id="@+id/iv_add_to_shoppingcar"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/add_shangpin2" />
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/delete_record_icon"
+        android:visibility="gone" />
+
+
+</RelativeLayout>
+
