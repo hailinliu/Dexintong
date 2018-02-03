@@ -93,7 +93,10 @@ public class ImperfectGoodsFragment extends BaseFragment {
         pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                mImperfectData.clear();
+                if(null!=mImperfectData){
+                    mImperfectData.clear(); 
+                }
+               
                 imperfectDataByHttp(1);
                 currentPage = 2;
             }

@@ -284,7 +284,7 @@ public class OrderStatusFragment extends BaseFragment {
      */
     private void httpData(int page, int t_Value, int status_Value) {
 
-        if (!NetUtil.isNetworkAvailable(getActivity())) {
+        if (!NetUtil.isNetworkAvailable(getActivity())&&getActivity()!=null) {
             pullToRefreshListView.setVisibility(View.GONE);
             rl_no_net.setVisibility(View.VISIBLE);
             ToastUtil.showToast(getActivity(), "网络连接失败，请检查网络...", Toast.LENGTH_SHORT);

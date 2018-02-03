@@ -214,13 +214,14 @@ public class MixedVerifyActivity extends Activity implements OnClickListener, Ca
 					showTip(getString(R.string.login_success_hint));
 					// 隐藏提示框
 					mPopupHint.dismiss();
+					loginInByFace();
 				} else {
 					mLoginSuccess = false;
 					mUser.setLogined(false);
 
 					showTip("登录失败");
 				}
-				loginInByFace();
+			
 				/*Intent intent = new Intent(MixedVerifyActivity.this, VerifyResultActivity.class);
 				intent.putExtra("user", mUser);
 				startActivity(intent);*/
@@ -333,7 +334,7 @@ public class MixedVerifyActivity extends Activity implements OnClickListener, Ca
 		public boolean onTouch(View v, MotionEvent event) {
 			if( null == mIdVerifier ){
 				// 创建单例失败，与 21001 错误为同样原因，参考 http://bbs.xfyun.cn/forum.php?mod=viewthread&tid=9688
-				showTip( "创建对象失败，请确认 libmsc.so 放置正确，且有调用 createUtility 进行初始化" );
+				//showTip( "创建对象失败，请确认 libmsc.so 放置正确，且有调用 createUtility 进行初始化" );
 				return false;
 			}
 			
@@ -848,7 +849,8 @@ public class MixedVerifyActivity extends Activity implements OnClickListener, Ca
 		}
 		String url = AppConstant.BASEURL2 + "api/login/signin";
 		
-		String pwd = MD5Util.md5(MD5Util.md5(decision));
+		//boolean pwd = true;
+		String pwd = MD5Util.md5(MD5Util.md5("true"));
 		String timeStamp = String.valueOf(new Date().getTime());
 		String randomNumberTen = RandomUtil.getRandomNumberTen();
 		String accessToken = SPUtils.getString(this, "accessToken", "");
@@ -856,7 +858,7 @@ public class MixedVerifyActivity extends Activity implements OnClickListener, Ca
 		map.clear();
 
 		map.put("Timestamp", timeStamp);
-		map.put("Pwd", pwd);
+		map.put("Pwd", String.valueOf(pwd));
 		map.put("Captcha", "123456");
 		map.put("Vt", identifyTypeValue);
 		map.put("Nonce", randomNumberTen);
@@ -928,5 +930,14 @@ public class MixedVerifyActivity extends Activity implements OnClickListener, Ca
 				LogUtil.e("login", e.toString());
 			}
 		});
+	}
+
+	@Override
+	public void finish() {
+		if(mCamera!=null){
+			closeCamera();
+			
+		}
+		super.finish();
 	}
 }

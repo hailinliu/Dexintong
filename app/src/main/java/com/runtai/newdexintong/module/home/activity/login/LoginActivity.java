@@ -88,7 +88,7 @@ public class LoginActivity extends BaseActivity {
     private TextView tv_tourist_login;
     private ImageView iv_clear_phone;
     private Button btn_get_code;
-
+    private String vt ="1";
     // 定位结果监听
 //    public BDLocationListener myListener;
     // 搜索的经纬度
@@ -231,7 +231,9 @@ public class LoginActivity extends BaseActivity {
     };
   
     private TextView facelogin;
-   
+    private boolean isExit;
+    private Button btn_wechat_identify;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,6 +251,7 @@ public class LoginActivity extends BaseActivity {
         initView();
        // mAuthid = et_account.getText().toString();
         registerListener();
+       
     }
 
 
@@ -276,14 +279,15 @@ public class LoginActivity extends BaseActivity {
         tv_forget_password = (TextView) findViewById(R.id.tv_forget_password);
         btn_message_identify = (Button) findViewById(R.id.btn_message_identify);
         btn_token_identify = (Button) findViewById(R.id.btn_token_identify);
-
+        btn_wechat_identify = (Button)findViewById(R.id.btn_wechat_identify);
         tv_tourist_login = (TextView) findViewById(R.id.tv_tourist_login);
         iv_clear_phone = (ImageView) findViewById(R.id.iv_clear_phone);
         btn_get_code = (Button) findViewById(R.id.btn_get_code);
         facelogin = (TextView) findViewById(R.id.face_login);
         String username_ = SPUtils.getString(this, "login", "");
         String password_ = SPUtils.getString(this, "password", "");
-        if (!"".equals(username_) && !"".equals(password_)) {
+        //if (!"".equals(username_) && !"".equals(password_)) {
+        if (!"".equals(username_)) {
             et_account.setText(username_);
             facelogin.setVisibility(View.VISIBLE);
             et_password.setText(password_);
@@ -304,6 +308,7 @@ public class LoginActivity extends BaseActivity {
         iv_password.setOnClickListener(this);
         tv_user_register.setOnClickListener(this);
         tv_forget_password.setOnClickListener(this);
+        btn_wechat_identify.setOnClickListener(this);
         btn_message_identify.setOnClickListener(this);
         btn_token_identify.setOnClickListener(this);
         tv_tourist_login.setOnClickListener(this);
@@ -395,29 +400,49 @@ public class LoginActivity extends BaseActivity {
                 intent_findpassword.putExtra("login_account", et_account.getText().toString().trim());
                 startActivityByIntent(intent_findpassword);
                 break;
-
+            case R.id.btn_wechat_identify://微信验证
+                vt="2";
+                identifyTypeValue = String.valueOf(2);
+                et_identify_code.setText("");
+                et_identify_code.setHint(new SpannableString("请输入微信验证码"));
+                btn_wechat_identify.setTextColor(Color.parseColor("#ffffff"));
+                btn_token_identify.setTextColor(Color.parseColor("#FF2D48"));
+                btn_message_identify.setTextColor(Color.parseColor("#FF2D48"));
+                btn_wechat_identify.setBackgroundResource(R.drawable.shape_button_red_filled_bg);
+                btn_token_identify.setBackgroundResource(R.drawable.shape_button_red_edge_bg);
+                btn_message_identify.setBackgroundResource(R.drawable.shape_button_red_edge_bg);
+                btn_get_code.setVisibility(View.VISIBLE);
+                et_identify_code.setHintTextColor(Color.parseColor("#ffacacac"));
+                break;
             case R.id.btn_message_identify://短信验证
+                vt="1";
                 identifyTypeValue = String.valueOf(1);
                 et_identify_code.setText("");
                 et_identify_code.setHint(new SpannableString("请输入短信验证码"));
                 btn_message_identify.setTextColor(Color.parseColor("#ffffff"));
                 btn_token_identify.setTextColor(Color.parseColor("#FF2D48"));
+                btn_wechat_identify.setTextColor(Color.parseColor("#FF2D48"));
                 btn_message_identify.setBackgroundResource(R.drawable.shape_button_red_filled_bg);
                 btn_token_identify.setBackgroundResource(R.drawable.shape_button_red_edge_bg);
+                btn_wechat_identify.setBackgroundResource(R.drawable.shape_button_red_edge_bg);
                 btn_get_code.setVisibility(View.VISIBLE);
                 et_identify_code.setHintTextColor(Color.parseColor("#ffacacac"));
-
+              
+               // btn_wechat_identify.setText("微信验证");
                 break;
             case R.id.btn_token_identify://令牌验证
-
+                vt="0";
                 identifyTypeValue = String.valueOf(0);
                 et_identify_code.setText("");
                 et_identify_code.setHint(new SpannableString("请输入动态口令"));
                 btn_token_identify.setTextColor(Color.parseColor("#ffffff"));
                 btn_message_identify.setTextColor(Color.parseColor("#FF2D48"));
+                btn_wechat_identify.setTextColor(Color.parseColor("#FF2D48"));
                 btn_token_identify.setBackgroundResource(R.drawable.shape_button_red_filled_bg);
                 btn_message_identify.setBackgroundResource(R.drawable.shape_button_red_edge_bg);
+                btn_wechat_identify.setBackgroundResource(R.drawable.shape_button_red_edge_bg);
                 et_identify_code.setHintTextColor(Color.parseColor("#ffacacac"));
+               // btn_wechat_identify.setText("微信验证");
                 btn_get_code.setVisibility(View.GONE);
                 break;
 
@@ -464,7 +489,7 @@ public class LoginActivity extends BaseActivity {
      * 获取短信验证码
      */
     private void getMessageIdentifyCode() {
-
+        
         if (checkLoginInfo(1)) {
 
           
@@ -480,7 +505,7 @@ public class LoginActivity extends BaseActivity {
             map.clear();
             map.put("Login", usr);
             map.put("Pwd", pwd);
-            map.put("Vt", "1");
+            map.put("Vt", vt);
             map.put("Timestamp", timeStamp);
             map.put("Nonce", randomNumberTen);
             map.put("AppId", AppConstant.appid_value);
@@ -489,7 +514,7 @@ public class LoginActivity extends BaseActivity {
             OkHttpUtils.post().url(URL).addHeader(AppConstant.HEADER_NAME, AppConstant.HEADER_VERSION)
                     .addParams("Login", usr)
                     .addParams("Pwd", pwd)
-                    .addParams("Vt", "1")
+                    .addParams("Vt", vt)
                     .addParams("Sign", signValue)
                     .addParams("Timestamp", timeStamp)
                     .addParams("Nonce", randomNumberTen)
@@ -521,6 +546,8 @@ public class LoginActivity extends BaseActivity {
 
         }
     }
+   
+    
 
     /**
      * 密码登录
@@ -716,7 +743,5 @@ public class LoginActivity extends BaseActivity {
         mToast.setText(tip);
         mToast.show();
     }
-    
-   
-  
+
 }

@@ -30,7 +30,15 @@ public class ReturnReplaceImperfectGoodsAcitivity extends BaseActivity {
     private List<Fragment> mFragment = new ArrayList<Fragment>();
 
     @Override
+    protected void onSaveInstanceState(Bundle arg0) {
+       // super.onSaveInstanceState(arg0);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            savedInstanceState.remove("android:support:fragments");  //注意：基类是Activity时参数为android:fragments， 一定要在super.onCreate函数前执行！！！
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_return_and_replace_goods);
         initView();

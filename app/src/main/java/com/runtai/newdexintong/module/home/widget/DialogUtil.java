@@ -1,6 +1,7 @@
 package com.runtai.newdexintong.module.home.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 
 import com.runtai.newdexintong.comment.activity.BaseCommonActivity;
@@ -55,7 +56,11 @@ public class DialogUtil {
                         
                         new MyAlertDialog(context).dimissDialog();
                         ActivityStack.getInstance().finishActivity(MainActivity.class);
-                        ((BaseCommonActivity) context).startActivityByIntent(LoginActivity.class);
+                        
+                        //((BaseCommonActivity) context).startActivityByIntent(LoginActivity.class);
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        ((BaseCommonActivity)context).startActivity(intent);
                     }
                 }).show();
 

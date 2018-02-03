@@ -92,7 +92,10 @@ public class ReturnGoodsFragment extends BaseFragment {
         pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                mRetrunData.clear();
+               if(null!=mRetrunData){
+                   mRetrunData.clear();
+               }
+             
                 returnGoodsByHttp(1);
                 currentReturnPage = 2;
             }
@@ -153,6 +156,8 @@ public class ReturnGoodsFragment extends BaseFragment {
                 .addParams("AppId", AppConstant.appid_value)
                 .build().execute(new StringCallback() {
 
+            private ReturnGoodsAdapter adapter;
+
             @Override
             public void onResponse(String response) {
 
@@ -180,12 +185,16 @@ public class ReturnGoodsFragment extends BaseFragment {
                         returnPages = data.getPages();
                         int total = data.getTotal();
                         pullToRefreshListView.onRefreshComplete();
-                        ReturnGoodsAdapter adapter = new ReturnGoodsAdapter(getActivity(), mRetrunData);
-                        if (isFirst) {
+                        if(null!=getActivity()) {
+                            adapter = new ReturnGoodsAdapter(getActivity(), mRetrunData);
+                        } if (isFirst) {
                             pullToRefreshListView.setAdapter(adapter);
                             isFirst = false;
                         } else {
-                            adapter.notifyDataSetChanged();
+                           if(null!=adapter){
+                               adapter.notifyDataSetChanged();  
+                           }
+                           
                         }
                     } else if (code == 403) {
                         DialogUtil.showDialog(getActivity(), getResources().getString(R.string.need_login_again));

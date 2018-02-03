@@ -267,7 +267,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:background="@null"
-                            android:hint="(规格：整件/零散)(最多可退"
+                            android:hint="(规格：整品/整件)(最多可退"
                             android:textSize="@dimen/font_12" />
 
                         <TextView
@@ -651,7 +651,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_toRightOf="@+id/tv_return_goods_text"
-                            android:text="整件规格"
+                            android:text="整品规格"
                             android:textColor="@color/text_gray"
                             android:textSize="@dimen/font_12" />
 
@@ -669,7 +669,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_toRightOf="@+id/tv_return_goods_text"
-                            android:text="零散规格"
+                            android:text="整件规格"
                             android:textColor="@color/text_gray"
                             android:textSize="@dimen/font_12" />
 

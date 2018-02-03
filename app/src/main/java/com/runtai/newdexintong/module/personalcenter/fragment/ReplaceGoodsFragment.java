@@ -93,7 +93,10 @@ public class ReplaceGoodsFragment extends BaseFragment {
         pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                mReplaceGoodsData.clear();
+               if(null!=mReplaceGoodsData){
+                   mReplaceGoodsData.clear();   
+               } 
+               
                 replaceGoodsHttp(1);
                 currentPage = 2;
             }
@@ -154,6 +157,8 @@ public class ReplaceGoodsFragment extends BaseFragment {
                 .addParams("AppId", AppConstant.appid_value)
                 .build().execute(new StringCallback() {
 
+            private ReplaceGoodsAdapter replaceGoodsAdapter;
+
             @Override
             public void onResponse(String response) {
 
@@ -181,7 +186,9 @@ public class ReplaceGoodsFragment extends BaseFragment {
                         int total = mReplaceGoodsBean.getTotal();
                         replacePages = mReplaceGoodsBean.getPages();
                         pullToRefreshListView.onRefreshComplete();
-                        ReplaceGoodsAdapter replaceGoodsAdapter = new ReplaceGoodsAdapter(getActivity(), mReplaceGoodsData);
+                       
+                            replaceGoodsAdapter = new ReplaceGoodsAdapter(getActivity(), mReplaceGoodsData);
+                       
                         if (isFirst) {
                             isFirst = false;
                             pullToRefreshListView.setAdapter(replaceGoodsAdapter);

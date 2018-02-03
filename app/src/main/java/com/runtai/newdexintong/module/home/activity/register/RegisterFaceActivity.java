@@ -19,6 +19,7 @@ import android.os.Process;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -146,26 +147,32 @@ public class RegisterFaceActivity extends BaseVideoActivity {
 		});*/
 		
 	}
+	
+	boolean isInterrupted =false;
 	private Runnable timerRunnable = new Runnable() {
 		@Override
 		public void run() {
-			if (mCurrentTimer > 0) {
-				mTvCountDown.setText(String.valueOf(mCurrentTimer));
-
-				mCurrentTimer--;
-				mhandler.postDelayed(timerRunnable, 1000);
-			} else {
-				mTvCountDown.setText("");
-				mCameraId = CameraInfo.CAMERA_FACING_FRONT;
-				openCamera();
-				mCamera.startPreview();
-				mCamera.takePicture(null, null, jpeg);
-				//mCamera.takePicture(null, null, null, RegisterFaceActivity.this);
 			
+			
+				if (mCurrentTimer > 0) {
+					mTvCountDown.setText(String.valueOf(mCurrentTimer));
 
-				mIsTimerRunning = false;
-				mCurrentTimer = 5;
-			}
+					mCurrentTimer--;
+					mhandler.postDelayed(timerRunnable, 1000);
+				} else {
+					mTvCountDown.setText("");
+					mCameraId = CameraInfo.CAMERA_FACING_FRONT;
+					openCamera();
+					mCamera.startPreview();
+					mCamera.takePicture(null, null, jpeg);
+					//mCamera.takePicture(null, null, null, RegisterFaceActivity.this);
+
+
+					mIsTimerRunning = false;
+					mCurrentTimer = 5;
+				}
+			
+			
 		}
 	};
 	private boolean checkCameraPermission() {
@@ -383,6 +390,7 @@ public class RegisterFaceActivity extends BaseVideoActivity {
 					//showTip("注册成功");
 				
 				}else {
+					
 					showTip(new SpeechError(ret).getPlainDescription(true));
 				}
 			} catch (JSONException e) {
@@ -392,14 +400,19 @@ public class RegisterFaceActivity extends BaseVideoActivity {
 
 		@Override
 		public void onEvent(int eventType, int arg1, int arg2, Bundle obj) {
+			
 		}
 
 		@Override
 		public void onError(SpeechError error) {
 			
+			if(0!=mImageData.length){
 			showTip("你已经注册过了呦！");
-			onBackPressed();
-		}
+		
+			Intent intent = new Intent(getApplicationContext(), IdentityActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+		}}
 
 	};
 	@Override
@@ -523,7 +536,7 @@ public class RegisterFaceActivity extends BaseVideoActivity {
 		map.put("Timestamp", timeStamp);
 		map.put("Nonce", randomNumberTen);
 		map.put("AppId", AppConstant.appid_value);
-
+		map.put("IsOpenFace","true");
 		String signValue = StringUtil.getSignValue(map);
 
 
@@ -532,6 +545,7 @@ public class RegisterFaceActivity extends BaseVideoActivity {
 
 		OkHttpUtils.post().url(url).addHeader(AppConstant.HEADER_NAME, AppConstant.HEADER_VERSION)
 				.addHeader("Authorization", accessToken)
+				.addParams("IsOpenFace","true")
 				.addParams("Timestamp", timeStamp)
 				.addParams("Nonce", randomNumberTen)
 				.addParams("AppId", AppConstant.appid_value)
@@ -569,6 +583,24 @@ public class RegisterFaceActivity extends BaseVideoActivity {
 				LogUtil.e("login", e.toString());
 			}
 		});
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == KeyEvent.KEYCODE_BACK){
+			mhandler.removeCallbacks(timerRunnable);
+			//isInterrupted=true;
+			
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void finish() {
+		if(mCamera!=null){
+			closeCamera();
+		}
+		super.finish();
 	}
 }
 

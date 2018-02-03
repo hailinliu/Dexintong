@@ -73,6 +73,8 @@ import java.util.Map;
 
 import okhttp3.Request;
 
+import static java.lang.Integer.parseInt;
+
 
 /**
  * Created by Administrator on 2017/1/23.
@@ -115,7 +117,7 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
 //    private RelativeLayout rl_homepage_net_ok;
     private TextView tv_reload;
     private ProgressDialog progressDialog;
-
+    private TextView tv_homepage;
 
 
     @Override
@@ -128,6 +130,7 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
         isHttp = true;
         httpData();
         regsiterListener();
+        getNoticeMessage();
     }
 
     @Override
@@ -256,6 +259,7 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
     private void initView(View view) {
         setHomePageTitle(view);
         mScrollView = (MyScrollview) view.findViewById(R.id.mScrollView);
+        tv_homepage = (TextView)view.findViewById(R.id.tv_homepage);
         if (mScrollView != null) {
             mScrollView.smoothScrollTo(0,0);
         }
@@ -358,7 +362,7 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
         iv_special_three.setOnClickListener(this);
         iv_special_four.setOnClickListener(this);
         iv_special_four.setOnClickListener(this);
-
+        tv_homepage.setOnClickListener(this);
 
 //        mScrollView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
 //            @Override
@@ -435,7 +439,8 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
-
+            case R.id.tv_homepage:
+                
             case R.id.et_search://打开搜索界面
             case R.id.iv_search2:
                 ((BaseCommonActivity) getActivity()).startActivityByIntent(SearchActivity.class);
@@ -558,7 +563,72 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
 
         }
     }
+    /**
+     * 获取公告内容
+     */
+    private void getNoticeMessage() {
 
+        if (!NetUtil.isNetworkAvailable(HomePageFragment.this.getContext())) {
+            ToastUtil.showToast(HomePageFragment.this.getContext(), "网络连接失败，请检查网络...", Toast.LENGTH_SHORT);
+            dismissLoading();
+            return;
+        }
+
+        String url = AppConstant.BASEURL2 + "api/main/msg";
+        String timeStamp = MyDateUtils.getCurrentMillisecond();
+        String randomNumberTen = RandomUtil.getRandomNumberTen();
+        String accessToken = SPUtils.getString(HomePageFragment.this.getContext(), "accessToken", "");
+
+        Map<String, String> map = new HashMap<>();
+        map.clear();
+        map.put("Timestamp", timeStamp);
+        map.put("Nonce", randomNumberTen);
+        map.put("AppId", AppConstant.appid_value);
+        String signValue = StringUtil.getSignValue(map);
+
+        OkHttpUtils.post().url(url).addHeader(AppConstant.HEADER_NAME, AppConstant.HEADER_VERSION)
+                .addHeader("Authorization", accessToken)
+                .addParams("Sign", signValue)
+                .addParams("Timestamp", timeStamp)
+                .addParams("Nonce", randomNumberTen)
+                .addParams("AppId", AppConstant.appid_value)
+                .build().execute(new StringCallback() {
+
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    byte[] decode = Base64.decode(response);//base64解码
+                    String strJson = UTF8Util.getString(decode);
+                    JSONObject jsonObject = new JSONObject(strJson);
+                    int code = parseInt(jsonObject.getString("Code"));
+                    String msg = jsonObject.getString("Msg");
+                    if (code == 200) {
+                       /* Gson gson = GsonUtil.buildGson();
+                        CheckAppVersionBean checkAppVersionBean = gson.fromJson(strJson, CheckAppVersionBean.class);
+                        CheckAppVersionBean.DataBean data = checkAppVersionBean.getData();
+                        int serverVersionCode = (int) Double.parseDouble(data.getCode());
+                        String desc = data.getDesc();
+                        String downloadUrl = data.getUrl();*/
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                dismissLoading();
+
+            }
+
+            @Override
+            public void onError(Request request, Exception e) {
+                LogUtil.e("search_result", e.toString());
+                dismissLoading();
+            }
+        });
+
+
+
+    }
     protected void initcycleViewPager(List<HomePageAdsPicBean.DataBean.Ads1Bean.AdLocationsBean> bannerData) {
 
         this.bannerData = bannerData;

@@ -27,12 +27,19 @@ public class ImperfectGoodsAdapter extends BaseAdapter {
     private Context mContext;
     private List<ImperfectGoodsBean.DataBean.ListBean> list;
     private String point_msg;
-    private final LayoutInflater mInflater;
+    private LayoutInflater mInflater;
 
     public ImperfectGoodsAdapter(Context mContext, List<ImperfectGoodsBean.DataBean.ListBean> list) {
         this.mContext = mContext;
         this.list = list;
-        mInflater = LayoutInflater.from(mContext);
+        try{
+            mInflater = LayoutInflater.from(mContext);
+        }catch (Exception e){
+            
+        }
+       // mInflater = LayoutInflater.from(mContext);
+       
+       
     }
 
 

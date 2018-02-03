@@ -324,7 +324,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
             android:src="@mipmap/search_icon" />
-
+       
     </RelativeLayout>
 
     <ImageView
@@ -339,5 +339,15 @@
         android:src="@mipmap/search_icon"
         android:visibility="gone" />
 
+    <TextView
+        android:id="@+id/face_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="刷脸"
+        android:textSize="16sp" 
+        android:visibility="gone"/>
 
 </RelativeLayout>

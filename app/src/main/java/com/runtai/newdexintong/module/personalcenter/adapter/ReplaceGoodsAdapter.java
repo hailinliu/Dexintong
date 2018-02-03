@@ -27,12 +27,17 @@ public class ReplaceGoodsAdapter extends BaseAdapter {
     private Context mContext;
     private List<ReplaceGoodsBean.DataBean.ListBean> list;
     private String point_msg;
-    private final LayoutInflater mInflater;
+    private  LayoutInflater mInflater;
 
     public ReplaceGoodsAdapter(Context mContext, List<ReplaceGoodsBean.DataBean.ListBean> list) {
         this.mContext = mContext;
         this.list = list;
-        mInflater = LayoutInflater.from(mContext);
+        try{
+            mInflater = LayoutInflater.from(mContext); 
+        }catch (Exception e){
+            
+        }
+       
     }
 
 

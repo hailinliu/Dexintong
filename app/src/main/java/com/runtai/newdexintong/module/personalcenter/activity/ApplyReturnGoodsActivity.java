@@ -101,6 +101,8 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
     private ApplyReturnGoodsBean.DataBean data;
     private TextView tv_return_goods_money;
     private LinearLayout ll_real_price;
+    private int spec;
+    private double onceSpec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,14 +160,18 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
                         ApplyReturnGoodsBean applyReturnGoodsBean = gson.fromJson(strJson, ApplyReturnGoodsBean.class);
                         data = applyReturnGoodsBean.getData();
                         tv_goods_name.setText(data.getItemName());
-                        tv_goods_number.setText(String.valueOf(data.getSpec()));
+                        spec = data.getSpec();
+                        tv_goods_number.setText(String.valueOf(spec));
                         tv_goods_unit.setText(data.getUnit());
-                        tv_price.setText(StringUtil.strToDouble_new(String.valueOf(data.getBenefitPrice() * data.getSpec())));
+                        onceSpec = data.getBenefitPrice() * data.getSpec();
+                        tv_price.setText(StringUtil.strToDouble_new(String.valueOf(onceSpec)));
                         tv_retunn_limit_number.setText(String.valueOf(data.getConfirmNum() / data.getSpec()));
-                        tv_ls_limit_num.setText(String.valueOf(data.getConfirmNum()));
-                        tv_unit2.setText(data.getUnit());
-                        tv_return_goods_unit.setText(data.getUnit());
-                        tv_real_price.setText(StringUtil.strToDouble_new(String.valueOf(data.getBenefitPrice())));
+                       // tv_ls_limit_num.setText(String.valueOf(data.getConfirmNum()));
+                      //  tv_unit2.setText(data.getUnit());
+                        tv_return_goods_unit.setText("件");
+                        //tv_return_goods_unit.setText(data.getUnit());
+                        tv_real_price.setText(StringUtil.strToDouble_new(String.valueOf(data.getBenefitPrice()*spec)));
+                       // tv_real_price.setText(StringUtil.strToDouble_new(String.valueOf(data.getBenefitPrice())));
                     } else if (code == 403) {
                         DialogUtil.showDialog(ApplyReturnGoodsActivity.this, getResources().getString(R.string.need_login_again));
                     } else {
@@ -204,11 +210,11 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
         iv_reduce = (ImageView) findViewById(R.id.iv_reduce);
         iv_add = (ImageView) findViewById(R.id.iv_add);
         tv_edit_goods_number = (TextView) findViewById(R.id.tv_edit_goods_number);
-        tv_ls_limit_num = (TextView) findViewById(R.id.tv_ls_limit_num);
+      //  tv_ls_limit_num = (TextView) findViewById(R.id.tv_ls_limit_num);
         tv_retunn_limit_number = (TextView) findViewById(R.id.tv_retunn_limit_number);
         ll_edit_goosNumber = (LinearLayout) findViewById(R.id.ll_edit_goosNumber);
         tv_total_return_number = (TextView) findViewById(R.id.tv_total_return_number);
-        tv_unit2 = (TextView) findViewById(R.id.tv_unit2);
+       // tv_unit2 = (TextView) findViewById(R.id.tv_unit2);
         tv_real_price = (TextView) findViewById(R.id.tv_real_price);
         tv_return_goods_unit = (TextView) findViewById(R.id.tv_return_goods_unit);
         tv_return_goods_money = (TextView) findViewById(R.id.tv_return_goods_money);
@@ -295,16 +301,19 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
                     --editNumber;
                     tv_edit_goods_number.setText(String.valueOf(editNumber));
                     tv_total_return_number.setText(String.valueOf(editNumber));
-                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber * data.getBenefitPrice())));
+                    //tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber * data.getBenefitPrice())));
+                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber * data.getBenefitPrice()*spec)));
                 }
                 break;
             case R.id.iv_add://点击加号
                 int editNumber2 = getEditNumber();
-                if (editNumber2 < data.getConfirmNum()) {
+                if (editNumber2 < data.getConfirmNum()/spec) {
+                //if (editNumber2 < data.getConfirmNum()) {
                     ++editNumber2;
                     tv_edit_goods_number.setText(String.valueOf(editNumber2));
-                    tv_total_return_number.setText(String.valueOf(editNumber2));
-                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber2 * data.getBenefitPrice())));
+                    tv_total_return_number.setText(String.valueOf(editNumber2));//需要传入请求的数据
+                    //tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber2 * data.getBenefitPrice())));
+                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber2 * data.getBenefitPrice()*spec)));
                 } else {
                     ToastUtil.showToast(ApplyReturnGoodsActivity.this, "退货数量不能大于可退数量", Toast.LENGTH_SHORT);
                 }
@@ -349,7 +358,7 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
         map.put("Date", getDate());
         map.put("OrderId", orderId);
         map.put("Id", orderDetailId);
-        map.put("Num", String.valueOf(getReturnGoodsNum()));
+        map.put("Num", String.valueOf(Integer.parseInt(getReturnGoodsNum())*spec));
         map.put("Timestamp", timeStamp);
         map.put("Nonce", randomNumberTen);
         map.put("AppId", AppConstant.appid_value);
@@ -361,7 +370,7 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
                 .addParams("Date", getDate())
                 .addParams("OrderId", orderId)
                 .addParams("Id", orderDetailId)
-                .addParams("Num", String.valueOf(getReturnGoodsNum()))
+                .addParams("Num",String.valueOf(Integer.parseInt(getReturnGoodsNum())*spec))
                 .addParams("Sign", signValue)
                 .addParams("Timestamp", timeStamp)
                 .addParams("Nonce", randomNumberTen)
@@ -413,14 +422,15 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
         tv_confirm = (TextView) popupWindowView.findViewById(R.id.tv_confirm);
         rl_return_all = (RelativeLayout) popupWindowView.findViewById(R.id.rl_return_all);
         rl_return_piece = (RelativeLayout) popupWindowView.findViewById(R.id.rl_return_piece);
+        //rl_return_piece.setVisibility(View.GONE);
         radioBtn_return_all = (RadioButton) popupWindowView.findViewById(R.id.radioBtn_return_all);
         radioBtn_return_piece = (RadioButton) popupWindowView.findViewById(R.id.radioBtn_return_piece);
-
+       // radioBtn_return_piece.setVisibility(View.GONE);
         String returnType = getReturnType();
-        if ("整件退".equals(returnType)) {
+        if ("整品退".equals(returnType)) {
             clearChecked();
             radioBtn_return_all.setChecked(true);
-        } else if ("零散退".equals(returnType)) {
+        } else if ("整件退".equals(returnType)) {
             clearChecked();
             radioBtn_return_piece.setChecked(true);
         }
@@ -429,32 +439,32 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
         tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                0整件退，1散退
+//                0整品退，1整件退
                 if (radioBtn_return_all.isChecked()) {
                     ll_real_price.setVisibility(View.VISIBLE);
                     tv_total_return_number.setVisibility(View.VISIBLE);
                     tv_return_goods_unit.setVisibility(View.VISIBLE);
-                    tv_select_return_goods_category.setText("整件退");
+                    tv_select_return_goods_category.setText("整品退");
                     flagValue = 0;
                     ll_edit_goosNumber.setVisibility(View.GONE);
-                    tv_total_return_number.setText(String.valueOf(data.getConfirmNum()));
+                    tv_total_return_number.setText(String.valueOf(data.getConfirmNum()/spec));
                     tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(data.getConfirmNum() * data.getBenefitPrice())));
                 } else {
                     ll_real_price.setVisibility(View.VISIBLE);
                     tv_total_return_number.setVisibility(View.VISIBLE);
                     ll_edit_goosNumber.setVisibility(View.VISIBLE);
                     tv_return_goods_unit.setVisibility(View.VISIBLE);
-                    tv_select_return_goods_category.setText("零散退");
+                    tv_select_return_goods_category.setText("整件退");
                     flagValue = 1;
                     tv_total_return_number.setText(String.valueOf(getEditNumber()));
-                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(getEditNumber() * data.getBenefitPrice())));
+                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*getEditNumber() * data.getBenefitPrice())));
 
                 }
                 closePopupWindow();
             }
         });
 
-        //整件退
+        //整品退
         rl_return_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -463,7 +473,7 @@ public class ApplyReturnGoodsActivity extends BaseActivity {
             }
         });
 
-        //零散退
+        //整件退
         rl_return_piece.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -72,7 +72,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/iv_account"
-                android:text="整件退"
+                android:text="整品退"
                 android:textSize="@dimen/font_16" />
 
             <RadioButton
@@ -112,7 +112,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/img2"
-                android:text="零散退"
+                android:text="整件退"
                 android:textSize="@dimen/font_16" />
 
             <RadioButton

@@ -168,6 +168,8 @@ public class ReturnReplaceGoodsFragment extends BaseFragment {
                 .addParams("AppId", AppConstant.appid_value)
                 .build().execute(new StringCallback() {
 
+            private ImperfectGoodsAdapter imperfectGoodsAdapter;
+
             @Override
             public void onResponse(String response) {
 
@@ -183,7 +185,9 @@ public class ReturnReplaceGoodsFragment extends BaseFragment {
                         ImperfectGoodsBean.DataBean data = imperfectGoodsBean.getData();
                         mImperfectData.addAll(data.getList());
                         imperfectPages = data.getPages();
-                        ImperfectGoodsAdapter imperfectGoodsAdapter = new ImperfectGoodsAdapter(getActivity(), mImperfectData);
+                        if(null!=getActivity()) {
+                            imperfectGoodsAdapter = new ImperfectGoodsAdapter(getActivity(), mImperfectData);
+                        }
                         pullToRefreshListView.onRefreshComplete();
                         if (isFirst) {
                             pullToRefreshListView.setAdapter(imperfectGoodsAdapter);
@@ -329,7 +333,7 @@ public class ReturnReplaceGoodsFragment extends BaseFragment {
                         replacePages = mReplaceGoodsBean.getPages();
                         mReplaceGoodsData.addAll(mReplaceGoodsBean.getList());
                         pullToRefreshListView.onRefreshComplete();
-                        ReplaceGoodsAdapter replaceGoodsAdapter = new ReplaceGoodsAdapter(getActivity(), mReplaceGoodsData);
+                        ReplaceGoodsAdapter replaceGoodsAdapter = new ReplaceGoodsAdapter(getActivity().getApplicationContext(), mReplaceGoodsData);
                         if (isFirst) {
                             isFirst = false;
                             pullToRefreshListView.setAdapter(replaceGoodsAdapter);

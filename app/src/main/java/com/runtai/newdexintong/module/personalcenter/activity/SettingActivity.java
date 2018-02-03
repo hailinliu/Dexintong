@@ -29,8 +29,7 @@ import com.runtai.newdexintong.comment.utils.des.Base64;
 import com.runtai.newdexintong.comment.utils.des.UTF8Util;
 import com.runtai.newdexintong.module.home.activity.MainActivity;
 import com.runtai.newdexintong.module.home.activity.login.LoginActivity;
-import com.runtai.newdexintong.module.home.activity.register.RegisterFaceActivity;
-import com.runtai.newdexintong.module.home.activity.register.VocalVerifyDemo;
+import com.runtai.newdexintong.module.home.activity.register.IdentityActivity;
 import com.runtai.newdexintong.module.home.utils.AppConstant;
 import com.runtai.newdexintong.module.home.utils.GsonUtil;
 import com.runtai.newdexintong.module.home.widget.DialogUtil;
@@ -63,8 +62,8 @@ public class SettingActivity extends BaseActivity {
 
     private RelativeLayout head_back;
     private ProgressDialog progressDialog;
-    private RelativeLayout setting_rl_faceidentity;
-    private RelativeLayout setting_rl_voiceidentity;
+    private RelativeLayout setting_authentication;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,13 +87,12 @@ public class SettingActivity extends BaseActivity {
         setting_rl_check_updata.setOnClickListener(this);
         setting_rl_aboutus = (RelativeLayout) findViewById(R.id.setting_rl_aboutus);
         setting_rl_aboutus.setOnClickListener(this);
-        setting_rl_faceidentity = (RelativeLayout)findViewById(R.id.setting_rl_faceidentity);
-        setting_rl_faceidentity.setOnClickListener(this);
+        setting_authentication = (RelativeLayout)findViewById(R.id.setting_authentication);
+        setting_authentication.setOnClickListener(this);
         setting_tv_login_out = (TextView) findViewById(R.id.setting_tv_login_out);
         setting_tv_login_out.setOnClickListener(this);
         setting_tv_clear_memory = (TextView) findViewById(R.id.setting_tv_clear_memory);
-        setting_rl_voiceidentity = (RelativeLayout)findViewById(R.id.setting_rl_voiceidentity);
-        setting_rl_voiceidentity.setOnClickListener(this);
+        
         setActivityTitle();
     }
 
@@ -126,13 +124,9 @@ public class SettingActivity extends BaseActivity {
             case R.id.setting_rl_aboutus://关于软件
                 startActivityByIntent(AboutUsActivity.class);
                 break;
-            case R.id.setting_rl_faceidentity://人脸注册
-              Intent intent = new Intent(this, RegisterFaceActivity.class);
-                startActivityByIntent(intent);
-                break;
-            case R.id.setting_rl_voiceidentity://人脸注册
-              Intent mintent = new Intent(this, VocalVerifyDemo.class);
-                startActivityByIntent(mintent);
+            case R.id.setting_authentication://身份验证
+                Intent intent = new Intent(this, IdentityActivity.class);
+                startActivity(intent);
                 break;
             case R.id.setting_tv_login_out://退出登录
                 new AlertDialog.Builder(this)
@@ -146,7 +140,11 @@ public class SettingActivity extends BaseActivity {
                                 SPUtils.putBoolean(SettingActivity.this, "isTourist", false);
                                 SPUtils.putString(SettingActivity.this, "login_success", "");
                                 SPUtils.putString(SettingActivity.this, "accessToken", "");//BasicAuth后面需要加一个英文空格
-                                startActivityByIntent(LoginActivity.class);
+                               // startActivityByIntent(LoginActivity.class);
+                                Intent intent = new Intent();
+                                intent.setClass(SettingActivity.this, LoginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //注意本行的FLAG设置 
+                                startActivity(intent);
                                 ActivityStack.getInstance().finishActivity(MainActivity.class);
                                 finish();
                             }

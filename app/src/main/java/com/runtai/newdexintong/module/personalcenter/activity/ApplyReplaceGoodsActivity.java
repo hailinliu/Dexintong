@@ -112,6 +112,9 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
     private TextView tv_replace_goods_unit;
     private int typeValue;
     private int itemIdValue;
+    private int spec;
+    private int spec1;
+    private double differencePrice;
     //    private TextView tv_return_goods_price;
 
     @Override
@@ -170,14 +173,16 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
                         Gson gson = GsonUtil.buildGson();
                         ApplyReturnGoodsBean applyReturnGoodsBean = gson.fromJson(strJson, ApplyReturnGoodsBean.class);
                         mReturnData = applyReturnGoodsBean.getData();
-                        tv_goods_name.setText(mReturnData.getItemName());
-                        tv_goods_number.setText(String.valueOf(mReturnData.getSpec()));
-                        tv_goods_unit.setText(ApplyReplaceGoodsActivity.this.mReturnData.getUnit());
-                        tv_price.setText(StringUtil.strToDouble_new(String.valueOf(mReturnData.getBenefitPrice() * mReturnData.getSpec())));
-                        tv_retunn_limit_number.setText(String.valueOf(mReturnData.getConfirmNum() / mReturnData.getSpec()));
-                        tv_ls_limit_num.setText(String.valueOf(mReturnData.getConfirmNum()));
-                        tv_unit2.setText(mReturnData.getUnit());
-                        tv_return_goods_unit.setText(mReturnData.getUnit());
+                        tv_goods_name.setText(mReturnData.getItemName());//货物名称
+                        spec = mReturnData.getSpec();//每件数量
+                        tv_goods_number.setText(String.valueOf(spec));//每件数量
+                        tv_goods_unit.setText(ApplyReplaceGoodsActivity.this.mReturnData.getUnit());//货品最小单位
+                        tv_price.setText(StringUtil.strToDouble_new(String.valueOf(mReturnData.getBenefitPrice() * mReturnData.getSpec())));//一件的价格
+                        tv_retunn_limit_number.setText(String.valueOf(mReturnData.getConfirmNum() / mReturnData.getSpec()));//最大的件数
+                        tv_ls_limit_num.setText(String.valueOf(mReturnData.getConfirmNum()));//最多可调数量
+                        tv_unit2.setText(mReturnData.getUnit());//货品最小单位
+                       // tv_return_goods_unit.setText(mReturnData.getUnit());//货品最小单位
+                        tv_return_goods_unit.setText("件");//改成存件单位
                         tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(mReturnData.getBenefitPrice())));
                     } else if (code == 403) {
                         DialogUtil.showDialog(ApplyReplaceGoodsActivity.this, getResources().getString(R.string.need_login_again));
@@ -250,7 +255,8 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
                         stock = data.getStock();
                         itemIdValue = data.getItemId();
                         tv_selected_goods_name.setText(data.getItemName());
-                        tv_selected_goods_number.setText(String.valueOf(data.getSpec()));
+                        spec1 = data.getSpec();
+                        tv_selected_goods_number.setText(String.valueOf(spec1));
                         tv_selected_goods_unit.setText(data.getUnit());
 //                        tv_replace_goods_unit.setText(data.getUnit());
                         tv_selected_goods_price.setText(StringUtil.strToDouble_new(String.valueOf(data.getOriginalPrice())));
@@ -411,20 +417,26 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
                 }
                 break;
             case R.id.tv_same_goods_replace://同品调换
+                
                 if (checkMsg())
                     httpSameDataByHttp();
                 break;
             case R.id.iv_reduce://点击减号
-                int editNumber = getEditNumber();
+                int editNumber = getEditNumber();//编辑最小的货物单位数量1
                 if (editNumber == 1) {
                     ToastUtil.showToast(ApplyReplaceGoodsActivity.this, "退货数量不能少于1", Toast.LENGTH_SHORT);
                 } else {
                     --editNumber;
-                    tv_edit_goods_number.setText(String.valueOf(editNumber));
-                    tv_return_goods_number.setText(String.valueOf(editNumber));
-                    tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber * mReturnData.getBenefitPrice())));
-                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber * mReturnData.getBenefitPrice())));
-
+                    tv_edit_goods_number.setText(String.valueOf(editNumber));//编辑框中数量，现在是以件为单位
+                    tv_return_goods_number.setText(String.valueOf(editNumber));//退货数量
+                    tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*editNumber * mReturnData.getBenefitPrice())));
+                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*editNumber * mReturnData.getBenefitPrice())));
+                    double differencePrice = getReplaceTotalPrice() - getReturnTotalPrice();
+                    if (differencePrice > 0) {
+                        tv_difference_money.setText(StringUtil.strToDouble_new(String.valueOf(differencePrice)));
+                    } else {
+                        tv_difference_money.setText(StringUtil.strToDouble_new(String.valueOf(0.00)));
+                    }
 
                 }
 
@@ -432,13 +444,18 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
             case R.id.iv_add://点击加号
 
                 int editNumber2 = getEditNumber();
-                if (editNumber2 < mReturnData.getConfirmNum()) {
+                if (editNumber2 < mReturnData.getConfirmNum()/spec) {
                     ++editNumber2;
-                    tv_edit_goods_number.setText(String.valueOf(editNumber2));
+                    tv_edit_goods_number.setText(String.valueOf(editNumber2));//
                     tv_return_goods_number.setText(String.valueOf(editNumber2));
-                    tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber2 * mReturnData.getBenefitPrice())));
-                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(editNumber2 * mReturnData.getBenefitPrice())));
-
+                    tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*editNumber2 * mReturnData.getBenefitPrice())));
+                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*editNumber2 * mReturnData.getBenefitPrice())));
+                    double differencePrice = getReplaceTotalPrice() - getReturnTotalPrice();
+                    if (differencePrice > 0) {
+                        tv_difference_money.setText(StringUtil.strToDouble_new(String.valueOf(differencePrice)));
+                    } else {
+                        tv_difference_money.setText(StringUtil.strToDouble_new(String.valueOf(0.00)));
+                    }
                 } else {
                     ToastUtil.showToast(ApplyReplaceGoodsActivity.this, "退货数量不能大于可退数量", Toast.LENGTH_SHORT);
                 }
@@ -512,6 +529,12 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
             String goodsPrice = intentData.getStringExtra("goodsPrice");
             tv_selected_goods_price.setText(StringUtil.strToDouble_new(String.valueOf(Double.parseDouble(goodsPrice))));
             tv_replace_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(Double.parseDouble(goodsPrice) * getEditReplaceNumber())));
+            double differencePrice = getReplaceTotalPrice() - getReturnTotalPrice();
+            if (differencePrice > 0) {
+                tv_difference_money.setText(StringUtil.strToDouble_new(String.valueOf(differencePrice)));
+            } else {
+                tv_difference_money.setText(StringUtil.strToDouble_new(String.valueOf(0.00)));
+            }
         }
     }
 
@@ -530,10 +553,10 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
         radioBtn_return_all = (RadioButton) popupWindowView.findViewById(R.id.radioBtn_return_all);
         radioBtn_return_piece = (RadioButton) popupWindowView.findViewById(R.id.radioBtn_return_piece);
         String returnType = tv_select_return_goods_category.getText().toString().trim();
-        if ("整件退".equals(returnType)) {
+        if ("整品退".equals(returnType)) {
             clearChecked();
             radioBtn_return_all.setChecked(true);
-        } else if ("零散退".equals(returnType)) {
+        } else if ("整件退".equals(returnType)) {
             clearChecked();
             radioBtn_return_piece.setChecked(true);
         }
@@ -544,26 +567,26 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
             public void onClick(View v) {
                 if (radioBtn_return_all.isChecked()) {
                     ll_return_des.setVisibility(View.VISIBLE);
-                    tv_select_return_goods_category.setText("整件退");
+                    tv_select_return_goods_category.setText("整品退");
                     flagValue = 0;
                     ll_edit_goosNumber.setVisibility(View.GONE);
-                    tv_return_goods_number.setText(String.valueOf(mReturnData.getConfirmNum()));
+                    tv_return_goods_number.setText(String.valueOf(mReturnData.getConfirmNum()/spec));
                     tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(mReturnData.getBenefitPrice() * mReturnData.getConfirmNum())));
                     tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(mReturnData.getBenefitPrice() * mReturnData.getConfirmNum())));
                 } else {
                     ll_return_des.setVisibility(View.VISIBLE);
                     flagValue = 1;
-                    tv_select_return_goods_category.setText("零散退");
+                    tv_select_return_goods_category.setText("整件退");
                     ll_edit_goosNumber.setVisibility(View.VISIBLE);
                     tv_return_goods_number.setText(String.valueOf(getEditNumber()));
-                    tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(getEditNumber() * mReturnData.getBenefitPrice())));
-                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(getEditNumber() * mReturnData.getBenefitPrice())));
+                    tv_replace_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*getEditNumber() * mReturnData.getBenefitPrice())));
+                    tv_return_goods_money.setText(StringUtil.strToDouble_new(String.valueOf(spec*getEditNumber() * mReturnData.getBenefitPrice())));
                 }
                 closePopupWindow();
             }
         });
 
-        //整件退
+        //整品退
         rl_return_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -572,7 +595,7 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
             }
         });
 
-        //零散退
+        //整件退
         rl_return_piece.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -726,7 +749,7 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
         map.put("Date", getDate());
         map.put("OrderId", orderId);
         map.put("Id", orderDetailId);
-        map.put("Num", String.valueOf(getReturnGoodsNumber()));
+        map.put("Num", String.valueOf(Integer.parseInt(getReturnGoodsNumber())*spec));
         map.put("Timestamp", timeStamp);
         map.put("Nonce", randomNumberTen);
         map.put("AppId", AppConstant.appid_value);
@@ -740,7 +763,7 @@ public class ApplyReplaceGoodsActivity extends BaseActivity {
                 .addParams("Date", getDate())
                 .addParams("OrderId", orderId)
                 .addParams("Id", orderDetailId)
-                .addParams("Num", String.valueOf(getReturnGoodsNumber()))
+                .addParams("Num", String.valueOf(Integer.parseInt(getReturnGoodsNumber())*spec))
                 .addParams("Sign", signValue)
                 .addParams("Timestamp", timeStamp)
                 .addParams("Nonce", randomNumberTen)

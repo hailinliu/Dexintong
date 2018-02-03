@@ -268,7 +268,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:background="@null"
-                        android:hint="(规格：整件/零散)(最多可退"
+                        android:hint="(规格：整品/整件)(最多可退"
                         android:textSize="@dimen/font_12" />
 
                     <TextView
@@ -288,7 +288,7 @@
                         android:hint="/件"
                         android:textSize="@dimen/font_12" />
 
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/tv_ls_limit_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -311,7 +311,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="@null"
                         android:hint="包"
-                        android:textSize="@dimen/font_12" />
+                        android:textSize="@dimen/font_12" />-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

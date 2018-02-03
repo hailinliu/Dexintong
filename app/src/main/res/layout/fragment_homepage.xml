@@ -7,7 +7,7 @@
     <include
         android:id="@+id/mTitle"
         layout="@layout/title_model" />
-
+    
 
     <com.runtai.newdexintong.module.homepage.view.MyScrollview
         android:id="@+id/mScrollView"
@@ -20,7 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <TextView
+                android:id="@+id/tv_homepage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:background="#ffcc00"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="你是这个世界上最伟大的奇迹你是这个世界上最伟大的奇迹你是这个世界上最伟大的奇迹"/>
             <fragment
                 android:id="@+id/cycleViewPager"
                 android:name="com.runtai.newdexintong.module.homepage.view.CycleViewPager"

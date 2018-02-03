@@ -448,15 +448,16 @@ public class OrderDetailAdapter extends BaseAdapter {
         Button btn_confirm_add = (Button) popupWindowView.findViewById(R.id.btn_confirm_add);
         TextView tv_spec_num = (TextView) popupWindowView.findViewById(R.id.tv_spec_num);
         TextView tv_spec_unit = (TextView) popupWindowView.findViewById(R.id.tv_spec_unit);
-
+        TextView Imperfect_goods_unit = (TextView) popupWindowView.findViewById(R.id.Imperfect_goods_unit);
         ImageLoader.getInstance().displayImage(mDataBean.getPhoto(), iv_dhh_goods_picture, ImageLoadUtil.getDefaultHeadPicOptions(), null);
         tv_dhh_goods_name.setText(mDataBean.getItemName());
         tv_goods_spec_num.setText(String.valueOf(mDataBean.getSpec()));
         tv_goods_spec_unit.setText(mDataBean.getUnit());
-        final int limit_num = mDataBean.getConfirmNum() - mDataBean.getReturnNum();
+        final int limit_num = mDataBean.getReturnNum();
         tv_limit_num.setText(String.valueOf(limit_num));
         tv_spec_num.setText(String.valueOf(mDataBean.getSpec()));
         tv_spec_unit.setText(mDataBean.getUnit());
+        Imperfect_goods_unit.setText(mDataBean.getUnit());
 
         View view_popuwindow_bg_color = popupWindowView.findViewById(R.id.view_popuwindow_bg_color);
         //点击周边关闭popuwindow

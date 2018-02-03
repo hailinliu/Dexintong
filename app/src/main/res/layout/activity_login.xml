@@ -29,18 +29,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:src="@mipmap/yubianli_logo" /> 
-            <TextView
-                android:id="@+id/face_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:text="刷脸"
-                android:textSize="16sp"
-                android:layout_marginRight="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:visibility="invisible"/>
+           
         </RelativeLayout>
             
            
@@ -292,7 +281,15 @@
                 android:layout_marginTop="15dp"
                 android:gravity="right"
                 android:orientation="horizontal">
-
+                <Button
+                    android:id="@+id/btn_wechat_identify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginRight="@dimen/login_horizontal_margin"
+                    android:background="@drawable/shape_button_red_edge_bg"
+                    android:text="微信验证"
+                    android:textColor="@color/new_title_color"
+                    android:textSize="@dimen/font_12" />
                 <Button
                     android:id="@+id/btn_message_identify"
                     android:layout_width="wrap_content"
