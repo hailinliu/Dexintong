@@ -1,6 +1,8 @@
 package com.runtai.newdexintong.module.homepage.fragment;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -118,6 +120,8 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
     private TextView tv_reload;
     private ProgressDialog progressDialog;
     private TextView tv_homepage;
+    private String msg;
+    private String data;
 
 
     @Override
@@ -440,7 +444,21 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
         super.onClick(v);
         switch (v.getId()) {
             case R.id.tv_homepage:
-                
+                //    通过AlertDialog.Builder这个类来实例化我们的一个AlertDialog的对象
+                        AlertDialog.Builder builder = new AlertDialog.Builder(HomePageFragment.this.getContext());
+                       //    设置Title的内容
+                     builder.setMessage(data);
+                       /* //    设置一个PositiveButton
+                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                Toast.makeText(getActivity().getApplicationContext(), "positive: " + which, Toast.LENGTH_SHORT).show();
+                            }
+                        });*/
+                builder.show();
+                break;
             case R.id.et_search://打开搜索界面
             case R.id.iv_search2:
                 ((BaseCommonActivity) getActivity()).startActivityByIntent(SearchActivity.class);
@@ -602,8 +620,11 @@ public class HomePageFragment extends BaseFragment implements CycleViewPager.Ima
                     String strJson = UTF8Util.getString(decode);
                     JSONObject jsonObject = new JSONObject(strJson);
                     int code = parseInt(jsonObject.getString("Code"));
-                    String msg = jsonObject.getString("Msg");
+                    msg = jsonObject.getString("Msg");
                     if (code == 200) {
+
+                        data = jsonObject.getString("Data");
+                        tv_homepage.setText(data);
                        /* Gson gson = GsonUtil.buildGson();
                         CheckAppVersionBean checkAppVersionBean = gson.fromJson(strJson, CheckAppVersionBean.class);
                         CheckAppVersionBean.DataBean data = checkAppVersionBean.getData();
